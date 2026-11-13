@@ -1,10 +1,19 @@
+
 # Enterprise Contract & Operations Intelligence Platform
-An Integrated Enterprise Business Intelligence, Process Automation & Document Governance Solution
+
+### An Integrated Enterprise Business Intelligence, Process Automation & Document Governance Solution
+
+![Power BI](https://img.shields.io/badge/Power%20BI-Analytics-F2C811?logo=powerbi&logoColor=black)
+![SAP](https://img.shields.io/badge/SAP-Enterprise%20Data-0FA6E9?logo=sap&logoColor=white)
+![SharePoint](https://img.shields.io/badge/SharePoint-Document%20Management-0078D4?logo=microsoftsharepoint&logoColor=white)
+![Power Automate](https://img.shields.io/badge/Power%20Automate-Workflow-0066FF?logo=powerautomate&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
 ## 1. Project Overview
-The Enterprise Contract & Operations Intelligence Platform is an integrated Business Intelligence solution designed to centralize contract, financial, operational, material, and contractor performance information into a unified analytical environment.
+
+The **Enterprise Contract & Operations Intelligence Platform** is an integrated Business Intelligence solution designed to centralize contract, financial, operational, material, and contractor performance information into a unified analytical environment.
 
 The platform transforms enterprise data from multiple SAP modules into actionable insights through interactive Power BI dashboards, enabling management teams to monitor contract lifecycles, financial performance, material delivery, operational risks, and contractor performance.
 
@@ -15,7 +24,9 @@ The project demonstrates how Business Intelligence can evolve from standalone da
 ---
 
 ## 2. Business Challenges
+
 The solution addresses several enterprise operational challenges:
+
 - Fragmented contract and operational information across multiple SAP modules.
 - Limited visibility into contract lifecycle and financial performance.
 - Difficulty monitoring material delivery and procurement activities.
@@ -28,214 +39,206 @@ The solution addresses several enterprise operational challenges:
 ---
 
 ## 3. Solution Architecture
+
 The platform combines enterprise data integration, analytical reporting, document management, and workflow automation.
 
 ### High-Level Architecture
+
 ```text
-SAP Enterprise Data (Multiple Modules) 
-    │
-    ▼
-Power Query (Data Transformation)
-    │
-    ▼
-Power BI Data Model
-    │
-    ▼
-DAX Measures & KPIs
-    │
-    ▼
-Interactive BI Dashboards ──(Security: Entra ID & RLS)
-    │
-    ├─────────────────────────────┐
-    ▼                             ▼
-Contract Document Interface   Microsoft Purview (Audit)
-    │
-    ▼
-Power Automate (Approval Workflow)
-    │
-    ├─────────────────────────────┐
-    ▼                             ▼
-SharePoint Lists (Audit Log)    SharePoint Document Library
-                                  │
-                                  ▼
-                        Document Access & Download
-Architecture Components
-Component	Responsibility
-SAP	Enterprise business and operational data
-Power Query	Data extraction and transformation
-Power BI	Analytical modeling and reporting
-DAX	KPI calculations and business logic
-SharePoint	Contract document repository
-Power Automate	Document approval and notification workflows
-SharePoint Lists	Request and approval audit records
-Microsoft Entra ID	Identity and access management
-Microsoft Purview	Actual document activity auditing, where configured
-4. Functional Modules
-The platform consists of seven integrated operational and analytical modules:
+SAP Enterprise Data (Multiple Modules)
+                |
+                v
+       Power Query
+   (Data Transformation)
+                |
+                v
+       Power BI Data Model
+                |
+                v
+       DAX Measures & KPIs
+                |
+                v
+     Interactive BI Dashboards
+                |
+                v
+      Contract Document Interface
+                |
+                v
+       Power Automate
+      (Approval Workflow)
+                |
+          +-----+------+
+          |            |
+          v            v
+    SharePoint      SharePoint
+      Lists          Document
+   (Audit Log)       Library
+                         |
+                         v
+                Document Access
+                  & Download
 
-Executive Overview
+Security Layer:
+Microsoft Entra ID | Power BI RLS | SharePoint Permissions
 
-Executive KPIs.
+Audit Layer:
+Microsoft Purview (where enabled)
+```
 
-Overall contract portfolio monitoring.
+### Architecture Components
 
-Operational performance indicators.
+| Component | Responsibility |
+|---|---|
+| **SAP** | Enterprise business and operational data |
+| **Power Query** | Data extraction and transformation |
+| **Power BI** | Analytical modeling and reporting |
+| **DAX** | KPI calculations and business logic |
+| **SharePoint** | Contract document repository |
+| **Power Automate** | Document approval and notification workflows |
+| **SharePoint Lists** | Request and approval audit records |
+| **Microsoft Entra ID** | Identity and access management |
+| **Microsoft Purview** | Actual document activity auditing, where configured |
 
-Management-level insights.
+---
 
-Contract Management
+## 4. Functional Modules
 
-Contract status tracking.
+The platform consists of seven integrated operational and analytical modules.
 
-Contract lifecycle monitoring.
+### 4.1 Executive Overview
 
-Contract dates and milestones.
+- Executive KPIs.
+- Overall contract portfolio monitoring.
+- Operational performance indicators.
+- Management-level insights.
 
-Contract extensions and renewal monitoring.
+### 4.2 Contract Management
 
-Financial Performance
+- Contract status tracking.
+- Contract lifecycle monitoring.
+- Contract dates and milestones.
+- Contract extensions and renewal monitoring.
 
-Financial performance indicators.
+### 4.3 Financial Performance
 
-Budget and expenditure monitoring.
+- Financial performance indicators.
+- Budget and expenditure monitoring.
+- Financial control and analysis.
 
-Financial control and analysis.
+### 4.4 Materials Tracking
 
-Materials Tracking
+- Material delivery monitoring.
+- Procurement and inventory visibility.
+- Material status analysis.
 
-Material delivery monitoring.
+### 4.5 Issues & Lessons Learned
 
-Procurement and inventory visibility.
+- Issue tracking and classification.
+- Lessons learned management.
+- Risk identification and monitoring.
 
-Material status analysis.
+### 4.6 Contractor Performance
 
-Issues & Lessons Learned
+- Contractor performance assessment.
+- Quality and compliance monitoring.
+- Vendor performance indicators.
 
-Issue tracking and classification.
+### 4.7 Contract Documents Management
 
-Lessons learned management.
+- Contract-related document listing.
+- Document association with contract references.
+- Document search and filtering.
+- Authorized document viewing and downloading.
+- Controlled document access based on user permissions.
 
-Risk identification and monitoring.
+---
 
-Contractor Performance
+## 5. Security & Access Management
 
-Contractor performance assessment.
+Security is implemented across both the reporting and document storage layers.
 
-Quality and compliance monitoring.
+### Reporting Security
 
-Vendor performance indicators.
+- Row-Level Security (RLS).
+- Role-Based Access Control (RBAC).
+- User authorization and permission management.
+- Controlled access to analytical information.
 
-Contract Documents Management
+### Document Security
 
-Contract-related document listing.
+- SharePoint-based document permissions.
+- Document-level access restrictions.
+- Controlled document retrieval.
+- Secure document download procedures.
 
-Document association with contract references.
+> **Architectural Principle:** Power BI reporting permissions and SharePoint document permissions are separate security layers. Access to a report does not automatically grant access to its underlying documents.
 
-Document search and filtering.
+---
 
-Authorized document viewing and downloading.
+## 6. Document Approval & Audit Workflow
 
-Controlled document access based on user permissions.
-
-5. Security & Access Management
-Security is implemented across both the reporting and document storage layers:
-
-Reporting Security: Row-Level Security (RLS), Role-Based Access Control (RBAC), user authorization and permission management, and controlled access to analytical information.
-
-Document Security: SharePoint-based document permissions, document-level access restrictions, controlled document retrieval, and secure document download procedures.
-
-Architectural Principle: Power BI reporting permissions and SharePoint document permissions are separate security layers. Access to a report does not automatically grant access to its underlying documents.
-
-6. Document Approval & Audit Workflow
 The solution integrates Power Automate with SharePoint to establish a controlled document access process.
 
-Approval Workflow Steps
-User selects a contract document from Power BI.
+### Approval Workflow Steps
 
-User submits a document access/download request.
+1. User selects a contract document from Power BI.
+2. User submits a document access/download request.
+3. Power Automate initiates the approval workflow.
+4. The authorized manager reviews the request.
+5. The manager approves or rejects the request.
+6. The user receives an automated notification.
+7. Authorized access is handled through SharePoint permissions.
 
-Power Automate initiates the approval workflow.
+### Document Audit & Governance
 
-The authorized manager reviews the request.
-
-The manager approves or rejects the request.
-
-The user receives an automated notification.
-
-Authorized access is handled through SharePoint permissions.
-
-Document Audit & Governance
 A centralized SharePoint audit list maintains request and approval records, including:
 
-Requester identification.
+- Requester identification.
+- Document and contract references.
+- Request submission timestamp.
+- Approver identification.
+- Approval or rejection decision.
+- Approval timestamp.
+- Request status and history.
 
-Document and contract references.
+**Audit distinction:** Power Automate audit records capture requests and approval decisions; they do not independently prove that a file was downloaded. Actual document activity auditing can be integrated with Microsoft Purview Audit, subject to organizational configuration and licensing.
 
-Request submission timestamp.
+---
 
-Approver identification.
+## 7. Technology Stack
 
-Approval or rejection decision.
+| Category | Technology |
+|---|---|
+| Enterprise Data Source | SAP |
+| Business Intelligence & Reporting | Microsoft Power BI |
+| Data Transformation | Power Query |
+| Analytical Calculations & KPIs | DAX |
+| Document Storage | SharePoint Document Library |
+| Audit & Request Management | SharePoint Lists |
+| Workflow Automation | Power Automate |
+| Identity & Access Management | Microsoft Entra ID |
+| Document Activity Auditing | Microsoft Purview |
 
-Approval timestamp.
+---
 
-Request status and history.
+## 8. Key Solution Capabilities & Business Value
 
-Audit distinction: The Power Automate audit records capture requests and approval decisions; they do not independently prove that a file was downloaded. Actual document activity auditing can be integrated with Microsoft Purview Audit, subject to organizational configuration and licensing.
+| Capability | Business Value |
+|---|---|
+| Integrated Enterprise Reporting | Unified visibility across operational functions |
+| Contract Lifecycle Monitoring | Improved contract oversight |
+| Financial Performance Analysis | Better financial control |
+| Materials Tracking | Improved delivery visibility |
+| Contractor Evaluation | Data-driven vendor assessment |
+| Automated Approvals | Reduced manual approval activities |
+| Secure Document Access | Controlled access to sensitive contracts |
+| Centralized Audit Logging | Improved traceability and governance |
 
-7. Technology Stack
-Enterprise Data Source: SAP
+---
 
-Business Intelligence & Reporting: Microsoft Power BI
+## 9. Repository Structure
 
-Data Transformation: Power Query
-
-Analytical Calculations & KPIs: DAX
-
-Document Storage: SharePoint Document Library
-
-Audit & Request Management: SharePoint Lists
-
-Workflow Automation: Power Automate
-
-Identity & Access Management: Microsoft Entra ID
-
-Document Activity Auditing: Microsoft Purview
-
-8. Key Solution Capabilities & Business Value
-Integrated Enterprise Reporting: Unified visibility across operational functions.
-
-Contract Lifecycle Monitoring: Improved contract oversight.
-
-Financial Performance Analysis: Better financial control.
-
-Materials Tracking: Improved delivery visibility.
-
-Contractor Evaluation: Data-driven vendor assessment.
-
-Automated Approvals: Reduced manual approval activities.
-
-Secure Document Access: Controlled access to sensitive contracts.
-
-Centralized Audit Logging: Improved traceability and governance.
-
-9. Project Deliverables
-Integrated Power BI reporting solution.
-
-Seven functional analytical modules.
-
-Contract document management interface.
-
-SharePoint document repository integration.
-
-Automated document approval workflows.
-
-Centralized document request and approval audit log.
-
-Enterprise security and access management design.
-
-10. Repository Structure
-Plaintext
+```text
 Enterprise-Contract-Operations-Intelligence/
 │
 ├── README.md
@@ -259,25 +262,36 @@ Enterprise-Contract-Operations-Intelligence/
 └── Documentation/
     ├── business-requirements.md
     └── security-and-governance.md
-11. Business Impact
-The platform demonstrates the practical application of enterprise Business Intelligence beyond traditional reporting. It brings together:
+```
 
-Enterprise data integration.
+---
 
-Operational and financial intelligence.
+## 10. Business Impact
 
-Contract and vendor performance monitoring.
+The platform demonstrates the practical application of enterprise Business Intelligence beyond traditional reporting.
 
-Business process automation.
+It brings together:
 
-Document security and governance.
+- Enterprise data integration.
+- Operational and financial intelligence.
+- Contract and vendor performance monitoring.
+- Business process automation.
+- Document security and governance.
+- Auditability and controlled information access.
 
-Auditability and controlled information access.
+**Result:** An integrated Enterprise BI solution that connects business data, operational decision-making, automated workflows, and secure document management within one architecture.
 
-Result: An integrated Enterprise BI solution that connects business data, operational decision-making, automated workflows, and secure document management within one architecture.
+---
 
-Project Category: Enterprise Business Intelligence & Digital Transformation
+## 11. Project Information
 
-Project Status: Completed
+| Attribute | Details |
+|---|---|
+| **Project Category** | Enterprise Business Intelligence & Digital Transformation |
+| **Project Status** | Completed |
+| **Core Technologies** | SAP, Power BI, DAX, Power Query, SharePoint, Power Automate, Microsoft Entra ID |
+| **Primary Focus** | Enterprise Analytics, Process Automation, Security & Governance |
 
-Core Technologies: SAP | Power BI | DAX | Power Query | SharePoint | Power Automate | Microsoft Entra ID
+---
+
+*This repository presents the solution architecture, functional capabilities, and technical implementation of an integrated Enterprise Business Intelligence platform.*
