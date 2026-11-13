@@ -9,12 +9,12 @@
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
-
-![Enterprise Contract Intelligence Platform](Enterprise Contract Intelligence Platform.png)
-
+## Enterprise Contract Intelligence Platform
+![Enterprise Contract Intelligence Platform](./Enterprise%20Contract%20Intelligence%20Platform.png)
+---
 ## Executive Overview Dashboard Mockup
 
-![Executive Overview Dashboard Mockup](Executive Overview Dashboard Mockup.png)
+![Executive Overview Dashboard Mockup](./Executive%20Overview%20Dashboard%20Mockup.png)
 ---
 
 > **Confidential Enterprise Project**
