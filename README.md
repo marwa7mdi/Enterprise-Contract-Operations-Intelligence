@@ -10,11 +10,11 @@
 
 ---
 
-![Enterprise Contract Intelligence Platform](Architecture/solution-architecture.png)
+![Enterprise Contract Intelligence Platform](Enterprise Contract Intelligence Platform.png)
 
 ## Executive Overview Dashboard Mockup
 
-![Executive Overview Dashboard Mockup](Dashboards/executive-overview-dashboard-mockup.png)
+![Executive Overview Dashboard Mockup](Executive Overview Dashboard Mockup.png)
 ---
 
 > **Confidential Enterprise Project**
